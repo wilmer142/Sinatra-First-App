@@ -1,10 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Hola Sinatra</title>
-</head>
-<body>
-  <h1>Mi primera aplicación Web con Sinatra!</h1>
-</body>
-</html>
+<h1>Torneo Dragon Ball</h1>
+<% (@characters.length/2).times do %>
+	<h2> <%= @characters.pop%> VS <%= @characters.pop %> </h2>
+<% end %>
