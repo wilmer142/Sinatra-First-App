@@ -4,7 +4,6 @@ require 'pry'
 
 include Faker
 
-
 get '/' do
 	@characters = []
 	10.times do
@@ -13,14 +12,6 @@ get '/' do
 	erb :index
 end
 
-
-=begin
-get '/' do
-	status 200
-	headers "Content-Type" => "text/html"
-	body "hola Mundo"
-end
-=end
 
 get '/greet' do
 	"Hola #{params[:name]} hoy es #{params[:dia]}"
@@ -69,4 +60,13 @@ end
 delete '/delete' do
 	status 200
 	body "borrando"
+end
+
+get '/form' do
+	erb :form
+end
+
+post '/name' do
+	@persons = {name: params[:name], surname: params[:surname], email: params[:email]}
+	erb :name
 end
