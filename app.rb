@@ -43,3 +43,30 @@ end
 get '/about' do
 	erb :about
 end
+
+get '/triangulo' do
+
+#	"CALCULANDO AREA DE TRIANGULO"
+#	"El lado del triangulo con lados: \n
+#	 a) #{params[:ladoa]} \n
+#	 b) #{params[:ladob]} \n
+#	 es: #{params[:ladoa].to_i * params[:ladob].to_i}"
+
+	@params = {ladoa: params[:ladoa], ladob: params[:ladob]}
+	erb :triangulo
+end
+
+get '/redirect' do
+	status 301
+	headers "location" => "https://www.google.com.co"
+end
+
+put '/put' do
+	status 200
+	body "Modificando"
+end
+
+delete '/delete' do
+	status 200
+	body "borrando"
+end
