@@ -30,11 +30,25 @@
   				<li><a href="/home">Home</a></li>
   				<li><a href="/about">About</a></li>
   				<li><a href="/contact">Contact</a></li>
-  				<li><a href="/form">Form</a></li>
+  				<li><a href="/torneo"></a></li>
+  			</ul>
+  			<ul class="nav navbar-nav navbar-right">
+  				<% if authorize %>
+  					<li><a href="/logout">Logout</a></li>	
+  				<% else %>
+  				  <li><a href="/sign_in">Sign In</a></li>
+  					<li><a href="/login">Login</a></li>
+  				<% end %>
   			</ul>
   		</div>
   	</nav>
 		<div class="body">
+			<% flash.keys.each do |type| %>
+			  <div data-alert class="alert alert-<%= type %>" role="alert">
+			    <%= flash[type] %>
+			    <a href="#" class="close">&times;</a>
+			  </div>
+			<% end %>
 			<%= yield %>	
 		</div>
 	</body>
